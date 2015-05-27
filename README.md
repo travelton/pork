@@ -7,6 +7,8 @@ The culinary name for Pig Meat... Also, Pork is a simple Python Flask microservi
 **Why Pork?**
 Spam has such a bad name. The poor product... But, did you know, Spam is really just Pork? True story, http://en.wikipedia.org/wiki/Spam_%28food%29.
 
+**Disclaimer**
+This service has not been tested in production. It might not perform very well! 
 
 The API is as follows: 
 
@@ -31,7 +33,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "spamassassin": {
         "command": "<REPORT|SYMBOLS>"
     }
-}' http://127.0.0.1:5000/scan
+}' http://127.0.0.1:5000/v0/scan
 ```
 
 JSON Result:
@@ -40,34 +42,35 @@ JSON Result:
 {
   "spamassassin": {
     "parsed": {
-      "actual_score": "15.1", 
-      "content_length": "2055", 
-      "required_score": "5.0", 
+      "actual_score": 15.1,
+      "content_length": 2055,
+      "required_score": 5.0,
       "rule_violations": [
         {
           "description": "Received via a relay in Spamhaus PBL", 
           "rule": "RCVD_IN_PBL", 
-          "score": "3.6"
+          "score": 3.6
         }, 
         {
           "description": "Contains an URL listed in the DBL blocklist", 
           "rule": "URIBL_DBL_SPAM", 
-          "score": "2.5"
+          "score": 2.5
         }, 
         {
           "description": "Contains an URL listed in the JP SURBL blocklist", 
           "rule": "URIBL_JP_SURBL", 
-          "score": "1.9"
+          "score": 1.9
         }, 
         {
           "description": "Contains an URL listed in the WS SURBL blocklist", 
           "rule": "URIBL_WS_SURBL", 
-          "score": "1.7"
+          "score": 1.7
         }
       ], 
-      "spam": "True"
+      "spam": true
     }, 
     "raw": "SPAMD/1.1 0 EX_OK\r\nContent-length: 2055\r\nSpam: True ; 15.1 / 5.0\r\n\r\nSpam detection software, running on the system \"cloud-server-01\", has\nidentified this incoming email as possible spam.  The original message\nhas been attached to this so you can view it (if it isn't spam) or label\nsimilar future email.  If you have any questions, see\nthe administrator of that system for details.\n\nContent preview:  so hard. t\u00c5\u00a7Hello there my adult mas\u0651t\u0361er\u036f! I\u0651t's m\u0326e,\n   Lavina!!Argued abby cried the window. Suggested abby trying not getting married.\n   [...Truncated]"
   }
 }
 ```
+

@@ -17,10 +17,10 @@ from lib.spamassassin import client
 app = Flask(__name__)
 
 # define the SpamAssassin server and port here
-app.config.update(dict(
-    SPAMD_SERVER="127.0.0.1",
-    SPAMD_PORT=783
-))
+app.config.update({
+    "SPAMD_SERVER": "127.0.0.1",
+    "SPAMD_PORT": 783
+})
 
 
 @app.route('/v0/scan', methods=['POST'])

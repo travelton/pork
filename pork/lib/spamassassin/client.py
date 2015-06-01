@@ -79,14 +79,14 @@ def parse(report_type, scan_result):
 
     # capture spam result
     spam_result_re = re.compile(
-        r'Spam: (True|False) ; ([0-9]{0,3}\.[0-9]{0,1}) \/ ([0-9]{0,3}\.[0-9]{0,1})')
+        r'Spam: (True|False) ; (-?[0-9]{0,3}\.[0-9]{0,1}) \/ ([0-9]{0,3}\.[0-9]{0,1})')
     spam_result = bool(re.search(spam_result_re, scan_result).group(1))
     spam_score_actual = float(re.search(spam_result_re, scan_result).group(2))
     spam_score_required = float(re.search(spam_result_re, scan_result).group(3))
 
     if report_type == "REPORT":
         # capture rules the spam message violated
-        rule_re = re.compile(r'\n ([0-9]{0,2}\.[0-9]{0,2}) ([A-Z_]+) ')
+        rule_re = re.compile(r'\n (-?[0-9]{0,2}\.[0-9]{0,2}) ([A-Z_]+) ')
         rule_results = re.findall(rule_re, scan_result)
 
     if report_type == "SYMBOLS":

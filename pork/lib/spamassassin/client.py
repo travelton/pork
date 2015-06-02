@@ -80,7 +80,7 @@ def parse(report_type, scan_result):
     # capture spam result
     spam_result_re = re.compile(
         r'Spam: (True|False) ; (-?[0-9]{0,3}\.[0-9]{0,1}) \/ ([0-9]{0,3}\.[0-9]{0,1})')
-    spam_result = bool(re.search(spam_result_re, scan_result).group(1))
+    spam_result = _cast_bool(re.search(spam_result_re, scan_result).group(1))
     spam_score_actual = float(re.search(spam_result_re, scan_result).group(2))
     spam_score_required = float(re.search(spam_result_re, scan_result).group(3))
 
@@ -122,3 +122,10 @@ def parse(report_type, scan_result):
     }
 
     return response
+
+
+def _cast_bool(string):
+    if string in ["True", "true"]:
+        return True
+    else:
+        return False

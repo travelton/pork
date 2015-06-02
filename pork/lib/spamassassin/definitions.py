@@ -34,6 +34,7 @@ definitions = {
     "BLANK_LINES_90_100": "Message body has 90-100% blank lines",
     "CHARSET_FARAWAY": "Character set indicates a foreign language",
     "CHARSET_FARAWAY_HEADER": "A foreign language charset used in headers",
+    "CK_HELO_DYNAMIC_SPLIT_IP": "Relay HELO used a suspicious hostname (Split IP)",
     "DATE_IN_FUTURE_03_06": "Date: is 3 to 6 hours after Received: date",
     "DATE_IN_FUTURE_06_12": "Date: is 6 to 12 hours after Received: date",
     "DATE_IN_FUTURE_12_24": "Date: is 12 to 24 hours after Received: date",

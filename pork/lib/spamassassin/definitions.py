@@ -275,7 +275,7 @@ definitions = {
     "URG_BIZ": "Contains urgent matter",
     "URIBL_AB_SURBL": "BLACKLISTING: Contains an URL listed in the AB SURBL blocklist",
     "URIBL_BLACK": "BLACKLISTING: [Body] Contains an URL listed in the URIBL blacklist",
-    "URIBL_BLOCKED": "BLACKLISTING: URIBL lookup throttled or blocked",
+    "URIBL_BLOCKED": "Temporary URIBL lookup error",
     "URIBL_DBL_SPAM": "BLACKLISTING: Contains an URL listed in the DBL blocklist",
     "URIBL_GREY": "BLACKLISTING: Contains an URL listed in the URIBL greylist",
     "URIBL_JP_SURBL": "BLACKLISTING: Contains an URL listed in the JP SURBL blocklist",

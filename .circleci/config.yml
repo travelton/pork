@@ -30,10 +30,12 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            virtualenv venv
+            . venv/bin/activate
             pip install -r requirements.txt
 workflows:
   version: 2
-  dev_stage_pre-prod:
+  prod_deployment:
     jobs:
       - build:
           filters:  # using regex filters requires the entire branch to match

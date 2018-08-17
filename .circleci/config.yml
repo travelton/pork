@@ -36,17 +36,31 @@ jobs:
 
 workflows:
   version: 2
-  Prod Deployment:
+  dev-deployment:
     jobs:
-      - Build:
+      - build:
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
                 - master
-      - Approval:
+      - tacos-hold:
           type: approval
           requires:
            - build
-      - Deploy:
+      - brisket-hold:
+          type: approval
           requires:
-            - Approval
+           - build
+      - triangle-hold:
+          type: approval
+          requires:
+           - build
+      - deploy:
+          requires:
+            - tacos-hold
+      - deploy:
+          requires:
+            - triangle-hold
+      - deploy:
+          requires:
+            - brisket-hold

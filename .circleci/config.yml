@@ -36,31 +36,22 @@ jobs:
 
 workflows:
   version: 2
-  dev_deployment:
+  deployment:
     jobs:
       - build:
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
                 - master
-      - hold:
+      - hold1:
+          type: approval
+          requires:
+           - build
+      - hold2:
           type: approval
           requires:
            - build
       - deploy:
           requires:
-            - hold
-  prod_deployment:
-    jobs:
-      - build:
-          filters:  # using regex filters requires the entire branch to match
-            branches:
-              only:  # only branches matching the below regex filters will run
-                - master
-      - hold:
-          type: approval
-          requires:
-           - build
-      - deploy:
-          requires:
-            - hold
+            - hold1
+            - hold2

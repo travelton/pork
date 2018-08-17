@@ -55,12 +55,12 @@ workflows:
           type: approval
           requires:
            - build
-      - deploy:
+      - tacos-deploy:
           requires:
             - tacos-hold
-      - deploy:
+      - triangle-deploy:
           requires:
             - triangle-hold
-      - deploy:
+      - brisket-deploy:
           requires:
             - brisket-hold

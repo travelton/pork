@@ -53,5 +53,4 @@ workflows:
            - build
       - deploy:
           requires:
-            - hold1
-            - hold2
+            - /^hold.*/

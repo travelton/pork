@@ -45,29 +45,23 @@ workflows:
               only:  # only branches matching the below regex filters will run
                 - master
       - tacos-hold:
-          name: "Deploy to Tacos"
           type: approval
           requires:
            - build
       - brisket-hold:
-          name: "Deploy to Brisket"
           type: approval
           requires:
            - build
       - triangle-hold:
-          name: "Deploy to Triangle"
           type: approval
           requires:
            - build
       - tacos-deploy:
-          name: "Deployment"
           requires:
             - tacos-hold
       - triangle-deploy:
-          name: "Deployment"
           requires:
             - triangle-hold
       - brisket-deploy:
-          name: "Deployment"
           requires:
             - brisket-hold

@@ -39,7 +39,6 @@ workflows:
   dev-deployment:
     jobs:
       - build:
-          name: "Build"
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
